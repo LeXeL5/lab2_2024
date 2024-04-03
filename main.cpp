@@ -4,7 +4,7 @@ struct node {
     int value = 0;
     node* next_node = nullptr;
 };
-struct stack {
+struct Queue {
     node* head = nullptr;
     node* tail = nullptr;
     int counter = 0;
@@ -114,14 +114,14 @@ void main(int argc, char* argv[]) {
     string argument;
     if (argc > 1) { argument = argv[1]; }
     if (argument == "false" || argument == "0") { interface = false; }
-    stack list;
+    Queue queue;
     int value;
     int count_what = 0;
     if (interface) {
         int switch_on = 1;
         while (switch_on) {
             system("cls");
-            list.menu();
+            queue.menu();
             cin >> switch_on;
             switch (switch_on) {
             case (0): {
@@ -129,34 +129,34 @@ void main(int argc, char* argv[]) {
                 }      
             case (1): {
                 cin >> value;
-                list.queue(value);
+                queue.queue(value);
                 break;
                 }
             case (2): {
-                if (list.count() > 0) {
-                    cout << list.unqueue() << endl;
+                if (queue.count() > 0) {
+                    cout << queue.unqueue() << endl;
                 }
                 break;
                 }     
             case (3): {
-                cout << list.count() << endl;
+                cout << queue.count() << endl;
                 break;
                 }    
             case (4): {
-                list.insertBeforeNegative();
+                queue.insertBeforeNegative();
                 break;
                 }  
             case (5): {
-                list.removeNegative();
+                queue.removeNegative();
                 break;
                 }  
             case (6): {
                 cin >> count_what;
-                cout << list.count(count_what) << endl;
+                cout << queue.count(count_what) << endl;
                 break;
                 }   
             case (7): {
-                list.clear();
+                queue.clear();
                 break;
                 }  
             default: {
@@ -171,16 +171,16 @@ void main(int argc, char* argv[]) {
         while (true) {
             cin >> value;
             if (value != 0) {
-                list.queue(value);
+                queue.queue(value);
             }
             else {
                 break;
             }
         }
-        list.insertBeforeNegative();
-        list.removeNegative();
+        queue.insertBeforeNegative();
+        queue.removeNegative();
         cin >> count_what;
-        cout << list.count(count_what) << endl;
-        list.clear();
+        cout << queue.count(count_what) << endl;
+        queue.clear();
     }
 }
