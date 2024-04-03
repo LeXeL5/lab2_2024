@@ -22,12 +22,15 @@ struct stack {
         counter++;
     }
     int unqueue() {
-        node* new_head = head->next_node;
-        int value = head->value;
-        delete head;
-        head = new_head;
-        counter--;
-        return value;
+        if (counter > 0) {
+            node* new_head = head->next_node;
+            int value = head->value;
+            delete head;
+            head = new_head;
+            counter--;
+            return value;
+        }
+        else { return 0; }
     }
     int count() {
         return counter;
@@ -125,17 +128,10 @@ void main(int argc, char* argv[]) {
                 break;
                 }      
             case (1): {
-                while (true) {
-                    cin >> value;
-                    if (value != 0) {
-                        list.queue(value);
-                    }
-                    else {
-                        break;
-                    }
-                }
+                cin >> value;
+                list.queue(value);
                 break;
-                }  
+                }
             case (2): {
                 if (list.count() > 0) {
                     cout << list.unqueue() << endl;
