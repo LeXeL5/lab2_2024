@@ -1,5 +1,15 @@
 #include <iostream>
 using namespace std;
+void menu() {
+    cout << "(0) shutdown program" << endl;
+    cout << "(1) queue(int value)" << endl;
+    cout << "(2) unqueue()" << endl;
+    cout << "(3) count()" << endl;
+    cout << "(4) insertBeforeNegative()" << endl;
+    cout << "(5) removeNegative()" << endl;
+    cout << "(6) count(int value)" << endl;
+    cout << "(7) clear()" << endl;
+}
 struct node {
     int value = 0;
     node* next_node = nullptr;
@@ -98,16 +108,6 @@ struct Queue {
             unqueue();
         }
     }
-    void menu() {
-        cout << "(0) shutdown program" << endl;
-        cout << "(1) queue(int value)" << endl;
-        cout << "(2) unqueue()" << endl;
-        cout << "(3) count()" << endl;
-        cout << "(4) insertBeforeNegative()" << endl;
-        cout << "(5) removeNegative()" << endl;
-        cout << "(6) count(int value)" << endl;
-        cout << "(7) clear()" << endl;
-    }
 };
 void main(int argc, char* argv[]) {
     bool interface = true;
@@ -121,7 +121,7 @@ void main(int argc, char* argv[]) {
         int switch_on = 1;
         while (switch_on) {
             system("cls");
-            queue.menu();
+            menu();
             cin >> switch_on;
             switch (switch_on) {
             case (0): {
